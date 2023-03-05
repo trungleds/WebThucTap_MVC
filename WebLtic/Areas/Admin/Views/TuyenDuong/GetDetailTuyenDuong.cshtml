@@ -1,0 +1,45 @@
+﻿@model WebLtic.Models.TuyenDuong
+
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frm_AddUpdateTuyenDuong" }))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.FlagUpdate == true)
+    {
+        <input type="hidden" id="hidID" value="@Model.ID" name="ID" />
+    }
+
+    <label for="txtUserName">Mã tuyến</label>
+    @Html.TextBoxFor(x => x.MaTuyen, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Tên Tuyên Dương</label>
+    @Html.TextBoxFor(x => x.TenTuyenDuong, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Nơi Đi</label>
+    @Html.TextBoxFor(x => x.NoiDi, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Nơi Đến</label>
+    @Html.TextBoxFor(x => x.NoiDen, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Đầu DM</label>
+    @Html.TextBoxFor(x => x.DauDM, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Chiều Dài</label>
+    @Html.TextBoxFor(x => x.ChieuDai, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Diễn Đàn</label>
+    @Html.TextBoxFor(x => x.DienDan, new { @class = "form-control", @id = "txtUserName" })
+
+
+}<div class="modal-footer">
+    @if (ViewBag.FlagUpdate == false)
+    {
+        <button type="button" class="btn btn-primary" id="btnSave" onclick="AddTuyenDuong()">Thêm mới</button>
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-warning" id="btnUpdate" onclick="AddTuyenDuong()">Cap Nhat</button>
+    }
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+</div>
+

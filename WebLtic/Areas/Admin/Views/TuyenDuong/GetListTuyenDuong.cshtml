@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebLtic.Models.TuyenDuong>
+
+@{
+    Layout = null;
+}
+
+
+<link href="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="~/KetNoi/Theme/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- Page level custom scripts -->
+<script src="~/KetNoi/Theme/js/demo/datatables-demo.js"></script>
+
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Tuyên Dương</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MaTuyen)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TenTuyenDuong)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NoiDi)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.NoiDen)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DauDM)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ChieuDai)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DienDan)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MaTuyen)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TenTuyenDuong)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NoiDi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NoiDen)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DauDM)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ChieuDai)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DienDan)
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-warning btn-sm text-nowrap " onclick="ShowAddUpdateTuyenDuong(@item.ID)"> <i class="fas fa-solid fa-pen"></i></a>
+                                            <a href="#" class="btn btn-danger btn-sm text-nowrap" onclick="ShowDelete(@item.ID)"><i class="fas fa-solid fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

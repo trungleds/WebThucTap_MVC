@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WebLtic.Models.BangGiaVanTai>
+
+@{
+    Layout = null;
+}
+
+
+<link href="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="~/KetNoi/Theme/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- Page level custom scripts -->
+<script src="~/KetNoi/Theme/js/demo/datatables-demo.js"></script>
+
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Bảng Giá Vận Tải</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        TenTuyenDuong
+                                    </th>
+                                    <th>
+                                        TenHangHoa
+                                    </th>
+                                    <th>
+                                        DVT
+                                    </th>
+                                    <th>
+                                        DonGia
+                                    </th>
+                                    <th>
+                                        DienDan
+                                    </th>
+                                    <th>
+                                        ChiNhanh
+                                    </th>
+                                    <th>
+                                        NgayTao
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.TenTuyenDuong
+                                        </td>
+                                        <td>
+                                            @item.TenHangHoa
+                                        </td>
+                                        <td>
+                                            @item.DVT
+                                        </td>
+                                        <td>
+                                            @item.DonGia
+                                        </td>
+                                        <td>
+                                            @item.DienDan
+                                        </td>
+                                        <td>
+                                            @item.ChiNhanh
+                                        </td>
+                                        <td>
+                                            @item.NgayTao.Value.ToString("d/M/yyyy")
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-warning btn-sm text-nowrap " onclick="ShowAddUpdateBGVanTai(@item.ID)"> <i class="fas fa-solid fa-pen"></i></a>
+                                            <a href="#" class="btn btn-danger btn-sm text-nowrap" onclick="ShowDelete(@item.ID)"><i class="fas fa-solid fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

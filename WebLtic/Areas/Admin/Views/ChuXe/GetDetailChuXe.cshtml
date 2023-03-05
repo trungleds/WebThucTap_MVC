@@ -1,0 +1,47 @@
+﻿@model WebLtic.Models.ChuXe
+
+@{
+    Layout = null;
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frm_AddUpdateChuXe" }))
+
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.FlagUpdate == true)
+    {
+        <input type="hidden" id="hidID" value="@Model.ID" name="ID" />
+    }
+
+    <label for="txtHoTen">Họ Tên</label>
+    @Html.TextBoxFor(x => x.HoTen, new { @class = "form-control", @id = "txtHoTen" })
+
+
+    <label for="txtDienThoai">Điện thoại</label>
+    @Html.TextBoxFor(x => x.DienThoai, new { @class = "form-control", @id = "txtDienThoai" })
+
+    <label for="txtCCCD"> Căn Cước Công Dân</label>
+    @Html.TextBoxFor(x => x.CCCD, new { @class = "form-control", @id = "txtCCCD" })
+
+
+    <label for="txtDiaChi"> Đia Chỉ</label>
+    @Html.TextBoxFor(x => x.DiaChi, new { @class = "form-control", @id = "txtDiaChi" })
+
+    <label for="txtDienDan"> Diễn Đàn</label>
+    @Html.TextBoxFor(x => x.DienDan, new { @class = "form-control", @id = "txtDienDan" })
+}
+<div class="modal-footer">
+    @if (ViewBag.FlagUpdate == false)
+    {
+        <button type="button" class="btn btn-primary" id="btnSave" onclick="AddChuXe()">Thêm mới</button>
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-warning" id="btnUpdate" onclick="AddChuXe()">Cap Nhat</button>
+    }
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+</div>
+
+
+

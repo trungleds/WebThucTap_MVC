@@ -1,0 +1,48 @@
+﻿@model WebLtic.Models.User
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frm_AddUpdateUser" }))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.FlagUpdate == true)
+    {
+        <input type="hidden" id="hidID" value="@Model.ID" name="ID" />
+    }
+
+    <label for="txtUserName">User Name</label>
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @id = "txtUserName" })
+
+
+    <label for="txtPassword">Password</label>
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @id = "txtPassword" })
+
+    <label for="txtName"> Name</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @id = "txtName" })
+
+
+    <label for="txtAddess"> Addess</label>
+    @Html.TextBoxFor(x => x.Addess, new { @class = "form-control", @id = "txtAddess" })
+
+    <label for="txtPhone">Phone </label>
+    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @id = "txtPhone" })
+    <label for="txtEmail"> Email</label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @id = "txtEmail" })
+    <label> Status</label>
+    @Html.CheckBoxFor(x => x.Status, new { @id = "ckStatus" })
+
+}
+<div class="modal-footer">
+    @if (ViewBag.FlagUpdate == false)
+    {
+        <button type="button" class="btn btn-primary" id="btnSave" onclick="AddUser()">Thêm mới</button>
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-warning" id="btnUpdate" onclick="AddUser()">Cap Nhat</button>
+    }
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+</div>

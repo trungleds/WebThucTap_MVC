@@ -1,0 +1,120 @@
+﻿@model IEnumerable<WebLtic.Models.DanhSachXe>
+@{
+    Layout = null;
+}
+<link href="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="~/KetNoi/Theme/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- Page level custom scripts -->
+<script src="~/KetNoi/Theme/js/demo/datatables-demo.js"></script>
+
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Xe</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Tên Xe
+                                    </th>
+                                    <th>
+                                        Biển Số Xe
+                                    </th>
+                                    <th>
+                                        Loại xe
+                                    </th>
+                                    <th>
+                                        Chủ Xe
+                                    </th>
+                                    <th>
+                                        Tài Xế
+                                    </th>
+                                    <th>
+                                        Màu Sơn
+                                    </th>
+                                    <th>
+                                        Hãng Xe
+                                    </th>
+                                    <th>
+                                        Ngày Tạo
+                                    </th>
+                                    <th>
+                                        Ghi Chú
+                                    </th>
+                                    <th>
+                                        Hiển thị
+                                    </th>
+                                    <th>
+
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.TenXe
+                                        </td>
+                                        <td>
+                                            @item.BienSoXe
+                                        </td>
+                                        <td>
+                                            @item.LoaiXe
+                                        </td>
+                                        <td>
+                                            @item.ChuXe
+                                        </td>
+                                        <td>
+                                            @item.TaiXe
+                                        </td>
+                                        <td>
+                                            @item.MauSon
+                                        </td>
+                                        <td>
+                                            @item.HangXe
+                                        </td>
+                                        <td>
+                                            @item.NgayTao.Value.ToString("d/M/yyyy")
+                                        </td>
+                                        <td>
+                                            @item.GhiChu
+                                        </td>
+                                        <td>
+
+                                            @if (@item.HienThi == false)
+                                            {
+                                                <span class="badge bg-red"> Khóa</span>
+                                            }
+                                            else
+                                            {
+
+                                                <span class="badge bg-green">Kích hoạt</span>
+                                            }
+
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-warning btn-sm text-nowrap " onclick="ShowAddUpdateDSXe(@item.ID)"> <i class="fas fa-solid fa-pen"></i></a>
+                                            <a href="#" class="btn btn-danger btn-sm text-nowrap" onclick="ShowDelete(@item.ID)"><i class="fas fa-solid fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>
+

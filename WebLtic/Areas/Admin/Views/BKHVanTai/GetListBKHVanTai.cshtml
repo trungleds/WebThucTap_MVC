@@ -1,0 +1,189 @@
+﻿@model IEnumerable<WebLtic.Models.BangKeHoachVanTai>
+
+@{
+    Layout = null;
+}
+
+<link href="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="~/KetNoi/Theme/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- Page level custom scripts -->
+<script src="~/KetNoi/Theme/js/demo/datatables-demo.js"></script>
+
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Tuyên Dương</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        NgayLapKH
+                                    </th>
+                                    <th>
+                                        KhachHang
+                                    </th>
+                                    <th>
+                                        NgayNhan
+                                    </th>
+                                    <th>
+                                        NoiNhanHang
+                                    </th>
+                                    <th>
+                                        NgayGiaoHang
+                                    </th>
+                                    <th>
+                                        NoiGiaoHang
+                                    </th>
+                                    <th>
+                                        TenHang
+                                    </th>
+                                    <th>
+                                        DVT
+                                    </th>
+                                    <th>
+                                        SoLuong
+                                    </th>
+                                    <th>
+                                        DonGia
+                                    </th>
+                                    <th>
+                                        ThanhTien
+                                    </th>
+                                    <th>
+                                        TienDaGiao
+                                    </th>
+                                    <th>
+                                       TienThieu
+                                    </th>
+                                    <th>
+                                        DienDan
+                                    </th>
+                                    <th>
+                                        TinhTrang
+                                    </th>
+                                    <th>
+                                        ThanhToan
+                                    </th>
+                                    <th>
+                                        TongBX
+                                    </th>
+                                    <th>
+                                        PhiPhatSinh
+                                    </th>
+                                    <th>
+                                        TongPhi
+                                    </th>
+                                    <th>
+                                        BienSoXe
+                                    </th>
+                                    <th>
+                                        ChuHang
+                                    </th>
+                                    <th>
+                                        NgayTao
+                                    </th>
+                                    <th>
+                                        NguoiTao
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NgayLapKH)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhachHang)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NgayNhan)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NoiNhanHang)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NgayGiaoHang)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NoiGiaoHang)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TenHang)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DVT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoLuong)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DonGia)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ThanhTien)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TienDaGiao)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TienThieu)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DienDan)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TinhTrang)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ThanhToan)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TongBX)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PhiPhatSinh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TongPhi)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BienSoXe)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ChuHang)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NgayTao)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NguoiTao)
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-warning btn-sm text-nowrap " onclick="ShowAddUpdateBKHVanTai(@item.ID)"> <i class="fas fa-solid fa-pen"></i></a>
+                                            <a href="#" class="btn btn-danger btn-sm text-nowrap" onclick="ShowDelete(@item.ID)"><i class="fas fa-solid fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

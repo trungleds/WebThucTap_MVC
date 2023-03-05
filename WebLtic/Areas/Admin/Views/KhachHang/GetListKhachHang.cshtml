@@ -1,0 +1,102 @@
+﻿@*@model PagedList.IPagedList<Model.EF.User>*@
+@model IEnumerable<WebLtic.Models.KhachHang>
+@*@using PagedList.Mvc;
+    @using PagedList;*@
+@{
+    Layout = null;
+}
+<link href="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<script src="~/KetNoi/Theme/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- Page level custom scripts -->
+<script src="~/KetNoi/Theme/js/demo/datatables-demo.js"></script>
+
+<div class="container-fluid p-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Xe</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Đối Tác
+                                    </th>
+                                    <th>
+                                        Địa Chỉ
+                                    </th>
+                                    <th>
+                                        Điện Thoại
+                                    </th>
+                                    <th>
+                                        Nợ Ban Đầu
+                                    </th>
+                                    <th>
+                                        Khu Vực
+                                    </th>
+                                    <th>
+                                        Loại Đối Tác
+                                    </th>
+                                    <th>
+                                        CCCD
+                                    </th>
+                                    <th>
+                                        Fax
+                                    </th>
+
+                                    <th>
+
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.DoiTac
+                                        </td>
+                                        <td>
+                                            @item.DiaChi
+                                        </td>
+                                        <td>
+                                            @item.DienThoai
+                                        </td>
+                                        <td>
+                                            @item.NoBanDau
+                                        </td>
+                                        <td>
+                                            @item.KhuVuc
+                                        </td>
+                                        <td>
+                                            @item.LoaiDoiTac
+                                        </td>
+                                        <td>
+                                            @item.CCCD
+                                        </td>
+                                        <td>
+                                            @item.Fax
+                                        </td>
+
+
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-warning btn-sm text-nowrap " onclick="ShowAddUpdateKhachHang(@item.ID)"> <i class="fas fa-solid fa-pen"></i></a>
+                                            <a href="#" class="btn btn-danger btn-sm text-nowrap" onclick="ShowDelete(@item.ID)"><i class="fas fa-solid fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

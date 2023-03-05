@@ -1,0 +1,145 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="card card-outline p-3" style="box-shadow: none;">
+    <div class="card-header" style="padding: 0;">
+        <div class="row ">
+            @* nút thêm User*@
+            <div class="col-md-2 p-2">
+                <a href="#" class="btn btn-primary " @*style="padding: 12px"*@ onclick="ShowAddUpdateChuXe(null)"> Them Chủ Xe</a>
+            </div>
+            <div class="card-body table-responsive p-0 " id="html_table_result">
+              
+            </div>
+        </div>
+        <div class="modal fade" id="addUpdateModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="btnAddNew">Thêm mới chủ xe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="html_result_detail_chuxe">
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*        xóa   *@
+        <div class="modal fade" id="deleteModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="btnAddNew">Xóa Chủ Xe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="html_result_detail_chuxe">
+                        <h3> Bạn có chắc muốn xóa chủ xe này ?</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnSave" onclick="DeleteChuXe()">xóa </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        GetListChuXe();
+
+    }
+    function GetListChuXe() {
+        //     var PERPAGE = 20;
+        //         var html_PERPAGE = $("#html_PERPAGE").val();
+			//if (html_PERPAGE != null)
+			//	PERPAGE = html_PERPAGE;
+        //var data = { PAGE: PAGE, PERPAGE: PERPAGE }
+        // bat loading
+        var url = '@Url.Action("GetListChuXe", "ChuXe")';
+        $("#html_table_result").load(url, function () {
+            // load xong lam gi
+            // tat loading
+        });
+
+
+    }
+    function ShowAddUpdateChuXe(ID) {
+        var data = { id: ID }
+        var url = '@Url.Action("GetDetailChuXe", "ChuXe")';
+        $("#html_result_detail_chuxe").load(url, data, function () {
+            // load xong lam gi
+            // tat loading
+        })
+        $('#addUpdateModal').modal({
+            toggle: true, backdrop: 'static', keyboard: false
+        });
+    }
+    function AddChuXe() {
+        var valdata = $("#frm_AddUpdateChuXe").serialize();
+            var _url = '@Url.Action("AddChuXe", "ChuXe")';
+            $.ajax({
+                url: _url,
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: valdata,
+                beforeSend: function () {
+                },
+                complete: function () {
+                },
+                success: function (data) {
+                    if (data.ID == 0) {
+                        $("#addUpdateModal").modal("hide");
+                        GetListChuXe();
+                    }
+                    else {
+                    }
+                },
+                error: function (errormessage, status, xhr) {
+                    alert('Error');
+                }
+            });
+    }
+    var m_ID;
+    function ShowDelete(ID) {
+        m_ID = ID;
+        $('#deleteModal').modal({
+            toggle: true, backdrop: 'static', keyboard: false
+        });
+    }
+    function DeleteChuXe() {
+        var data = { id: m_ID };
+            var _url = '@Url.Action("DeleteChuXe", "ChuXe")';
+        $.ajax({
+            url: _url,
+            type: "POST",
+            dataType: 'json',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+            data: data,
+            beforeSend: function () {
+            },
+            complete: function () {
+            },
+            success: function (data) {
+                if (data.ID == 0) {
+                    $("#deleteModal").modal("hide");
+                    GetListChuXe();
+                }
+                else {
+                    // show loi o Text
+                }
+            },
+            error: function (errormessage, status, xhr) {
+                alert('Error');
+            }
+        })
+    }
+
+</script>
+

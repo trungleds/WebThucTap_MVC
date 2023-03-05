@@ -1,0 +1,49 @@
+﻿@model WebLtic.Models.DanhSachXe
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frm_AddUpdateDSXe" }))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.FlagUpdate == true)
+    {
+        <input type="hidden" id="hidID" value="@Model.ID" name="ID" />
+    }
+
+    <label for="txtUserName">Tên Xe</label>
+    @Html.TextBoxFor(x => x.TenXe, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Biển Số</label>
+    @Html.TextBoxFor(x => x.BienSoXe, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Loại Xe</label>
+    @Html.TextBoxFor(x => x.LoaiXe, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Chủ Xe</label>
+    @Html.TextBoxFor(x => x.ChuXe, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Tài Xế</label>
+    @Html.TextBoxFor(x => x.TaiXe, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Màu Sơn</label>
+    @Html.TextBoxFor(x => x.MauSon, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Hãng Xe</label>
+    @Html.TextBoxFor(x => x.HangXe, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Ghi Chú</label>
+    @Html.TextBoxFor(x => x.GhiChu, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Ngày Tạo</label>
+    @Html.EditorFor(x => x.NgayTao, "", new { htmlAttributes = new { @class = "datepicker" } })
+
+
+
+}
+<div class="modal-footer">
+    @if (ViewBag.FlagUpdate == false)
+    {
+        <button type="button" class="btn btn-primary" id="btnSave" onclick="AddDSXe()">Thêm mới</button>
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-warning" id="btnUpdate" onclick="AddDSXe()">Cap Nhat</button>
+    }
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+</div>

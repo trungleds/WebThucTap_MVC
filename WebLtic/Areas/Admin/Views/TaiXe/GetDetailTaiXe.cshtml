@@ -1,0 +1,70 @@
+﻿@model WebLtic.Models.TaiXe
+
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frm_AddUpdateTaiXe" }))
+
+{
+
+    @Html.AntiForgeryToken()
+    if (ViewBag.FlagUpdate == true)
+    {
+        <input type="hidden" id="hidID" value="@Model.ID" name="ID" />
+    }
+<div class="row">
+    <div class="col-6">
+        <label for="txtHienThi">Hiển Thị</label>
+        @Html.CheckBoxFor(x => x.HienThi, new { @class = "form-control", @id = "txtHienThi" })
+        <label for="txtHoTen">HoTen </label>
+        @Html.TextBoxFor(x => x.HoTen, new { @class = "form-control", @id = "txtHoTen" })
+        <label for="txtBienSoXe">BienSoXe</label>
+        @Html.TextBoxFor(x => x.BienSoXe, new { @class = "form-control", @id = "txtBienSoXe" })
+        <label for="txtDienThoai">DienThoai</label>
+        @Html.TextBoxFor(x => x.DienThoai, new { @class = "form-control", @id = "txtDienThoai" })
+        <br />
+        <label for="txtNamSinh">Năm Sinh</label>
+        @Html.EditorFor(x => x.NamSinh, new { @class = "form-control", @id = "txtNamSinh" })
+        <br />
+        <label for="txtCCCD">Căn Cước Công Dân</label>
+        @Html.TextBoxFor(x => x.CCCD, new { @class = "form-control", @id = "txtCCCD" })
+        <br />
+    </div>
+    <div class="col-6">
+
+        
+        <label for="txtUserName">Ngày Cấp</label>
+        @Html.EditorFor(x => x.NgayCap, new { htmlAttributes = new { @class = "datepicker" } })
+        <br />
+        <label for="txtNoiCap">Nơi Cấp</label>
+        @Html.TextBoxFor(x => x.NoiCap, new { @class = "form-control", @id = "txtNoiCap" })
+        <label for="txtDiaChi">Địa Chỉ</label>
+        @Html.TextBoxFor(x => x.DiaChi, "", new { @class = "form-control", @id = "txtDiaChi" })
+        <label for="LuongCB">Lương Cơ Bản</label>
+        @Html.TextBoxFor(x => x.LuongCB, "", new { @class = "form-control", @id = "LuongCB" })
+        <label for="GiayTo">Giấy Tờ</label>
+        @Html.TextBoxFor(x => x.GiayTo, "", new { @class = "form-control", @id = "GiayTo" })
+        <label for="txtDienDan">Diễn Đàn</label>
+        @Html.TextBoxFor(x => x.DienDan, "", new { @class = "form-control", @id = "txtDienDan" })
+
+    </div>
+</div>
+ 
+
+}
+<div class="modal-footer">
+    @if (ViewBag.FlagUpdate == false)
+    {
+        <button type="button" class="btn btn-primary" id="btnSave" onclick="AddTaiXe()">Thêm mới</button>
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-warning" id="btnUpdate" onclick="AddTaiXe()">Cap Nhat</button>
+    }
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+</div>
+

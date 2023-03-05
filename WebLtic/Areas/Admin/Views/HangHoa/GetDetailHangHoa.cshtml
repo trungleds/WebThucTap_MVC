@@ -1,0 +1,38 @@
+﻿@model WebLtic.Models.HangHoa
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frm_AddUpdateHangHoa" }))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.FlagUpdate == true)
+    {
+        <input type="hidden" id="hidID" value="@Model.ID" name="ID" />
+    }
+
+    <label for="txtUserName">Tên Hàng Hóa</label>
+    @Html.TextBoxFor(x => x.TenHangHoa, new { @class = "form-control", @id = "txtUserName" })
+
+       <label for="txtUserName">Loại Hàng Hóa</label>
+    @Html.TextBoxFor(x => x.LoaiHangHoa, new { @class = "form-control", @id = "txtUserName" })
+
+
+    
+    <label> hiển thị</label>
+    @Html.CheckBoxFor(x => x.HienThi, new { @id = "ckStatus" })
+
+}
+<div class="modal-footer">
+    @if (ViewBag.FlagUpdate == false)
+    {
+        <button type="button" class="btn btn-primary" id="btnSave" onclick="AddHangHoa()">Thêm mới</button>
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-warning" id="btnUpdate" onclick="AddHangHoa()">Cap Nhat</button>
+    }
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+</div>

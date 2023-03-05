@@ -1,0 +1,45 @@
+﻿@model WebLtic.Models.KhachHang
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frm_AddUpdateKhachHang" }))
+{
+    @Html.AntiForgeryToken()
+    if (ViewBag.FlagUpdate == true)
+    {
+        <input type="hidden" id="hidID" value="@Model.ID" name="ID" />
+    }
+
+    <label for="txtUserName">Đối tác</label>
+    @Html.TextBoxFor(x => x.DoiTac, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Địa Chỉ</label>
+    @Html.TextBoxFor(x => x.DiaChi, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Điện Thoại</label>
+    @Html.TextBoxFor(x => x.DienThoai, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Nợ Ban Đầu</label>
+    @Html.TextBoxFor(x => x.NoBanDau, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Khu Vực</label>
+    @Html.TextBoxFor(x => x.KhuVuc, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Loại Đối Tác</label>
+    @Html.TextBoxFor(x => x.LoaiDoiTac, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Căn Cước Công Dân</label>
+    @Html.TextBoxFor(x => x.CCCD, new { @class = "form-control", @id = "txtUserName" })
+    <label for="txtUserName">Fax</label>
+    @Html.TextBoxFor(x => x.Fax, new { @class = "form-control", @id = "txtUserName" })
+
+}
+<div class="modal-footer">
+    @if (ViewBag.FlagUpdate == false)
+    {
+        <button type="button" class="btn btn-primary" id="btnSave" onclick="AddKhachHang()">Thêm mới</button>
+    }
+    else
+    {
+
+        <button type="button" class="btn btn-warning" id="btnUpdate" onclick="AddKhachHang()">Cap Nhat</button>
+    }
+
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLtic", "WebLtic\WebLtic.csproj", "{087124F5-B51B-4CD5-9146-82864B70B5FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{087124F5-B51B-4CD5-9146-82864B70B5FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087124F5-B51B-4CD5-9146-82864B70B5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087124F5-B51B-4CD5-9146-82864B70B5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087124F5-B51B-4CD5-9146-82864B70B5FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7681739D-4D01-4B7D-9A46-D4A12F27DFE5}
+	EndGlobalSection
+EndGlobal
