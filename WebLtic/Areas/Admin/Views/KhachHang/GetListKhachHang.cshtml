@@ -1,7 +1,4 @@
-﻿@*@model PagedList.IPagedList<Model.EF.User>*@
-@model IEnumerable<WebLtic.Models.KhachHang>
-@*@using PagedList.Mvc;
-    @using PagedList;*@
+﻿@model IEnumerable<WebLtic.Models.KhachHang>
 @{
     Layout = null;
 }
@@ -10,13 +7,12 @@
 <script src="~/KetNoi/Theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <!-- Page level custom scripts -->
 <script src="~/KetNoi/Theme/js/demo/datatables-demo.js"></script>
-
 <div class="container-fluid p-4">
     <div class="row">
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Xe</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Danh Khách Hàng</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -47,7 +43,6 @@
                                     <th>
                                         Fax
                                     </th>
-
                                     <th>
 
                                     </th>

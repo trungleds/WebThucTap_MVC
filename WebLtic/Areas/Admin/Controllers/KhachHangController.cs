@@ -27,10 +27,9 @@ namespace WebLtic.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult GetListKhachHang(string searchString/*,int page = 1, int pageSize = 4*/) // string searchString, int page = 1, int pageSize = 2
+        public ActionResult GetListKhachHang() // string searchString, int page = 1, int pageSize = 2
         {
             var khachhang = _context.KhachHangs.ToList();
-            var khachhangs = _context.KhachHangs.Where(x => x.DoiTac.Contains(searchString)).ToList();
             //var dao = new UserDao();
             //var model = dao.LisAllPaging( searchString, page,pageSize);
 

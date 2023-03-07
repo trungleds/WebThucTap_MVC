@@ -1,9 +1,12 @@
 ﻿using PagedList;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.DynamicData;
+using System.Web.UI.WebControls;
 using WebLtic.Models;
 
 namespace WebLtic.Dao
@@ -86,6 +89,22 @@ namespace WebLtic.Dao
         internal object Update(ChuXe chuxe)
         {
             throw new NotImplementedException();
+        }
+        public bool Login (string username, string password)
+        {
+            var result  = db.Users.Count(x=>x.UserName== username && x.Password == password);
+            if (result >0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public User GetById(string userName)
+        {
+            return db.Users.SingleOrDefault(x => x.UserName == userName);
         }
     }
 
